@@ -1,6 +1,6 @@
 FROM node:latest
-WORKDIR /software/graphql-server
-ADD . /software/graphql-server
+WORKDIR /software/express-server
+ADD . /software/express-server
 
 CMD ["npm", "run", "prod"]
 
