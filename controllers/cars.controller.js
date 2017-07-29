@@ -25,7 +25,7 @@ const addCar = (req, res, next) => {
             res.send('Got error in getAll');
         }
         else {
-            logger.info('sending all cars...');
+            logger.info('Adding car...');
             res.send('added: ' + savedCar);
         }
     })
