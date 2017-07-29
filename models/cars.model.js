@@ -12,7 +12,6 @@ CarsModel.getAll = (cb) => {
 
 CarsModel.addCar = (carToAdd, cb) => {
     carToAdd.save(cb);
-    console.log('');
 }
 
 export default CarsModel;
