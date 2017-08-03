@@ -31,4 +31,18 @@ const addCar = (req, res, next) => {
     })
 }
 
-export { getAll, addCar };
+const deleteCar = (req, res, next) => {
+    let carName = req.body.name;
+    Car.removeCar(carName, (err) => {
+       if(err) {
+           logger.error('Failed to delete car...');
+           res.send('Delete failed..!');
+       }
+       else {
+           logger.info('Deleted Car');
+           res.send('Car successfully deleted');
+       }
+    });
+}
+
+export { getAll, addCar, deleteCar };

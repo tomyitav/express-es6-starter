@@ -14,4 +14,8 @@ CarsModel.addCar = (carToAdd, cb) => {
     carToAdd.save(cb);
 }
 
+CarsModel.removeCar = (carName, cb) => {
+    CarsModel.remove({carName}, cb);
+}
+
 export default CarsModel;
