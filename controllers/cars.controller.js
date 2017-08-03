@@ -1,7 +1,9 @@
 import Car from '../models/cars.model'
 import logger from '../core/logger/app-logger'
 
-const getAll = (req, res, next) => {
+const controller = {};
+
+controller.getAll = (req, res, next) => {
     // res.send("All Cars received");
     Car.getAll((err, cars) => {
         if(err) {
@@ -15,7 +17,7 @@ const getAll = (req, res, next) => {
     })
 }
 
-const addCar = (req, res, next) => {
+controller.addCar = (req, res, next) => {
     let carToAdd = new Car({
         name: req.body.name
     })
@@ -31,7 +33,7 @@ const addCar = (req, res, next) => {
     })
 }
 
-const deleteCar = (req, res, next) => {
+controller.deleteCar = (req, res, next) => {
     let carName = req.body.name;
     Car.removeCar(carName, (err) => {
        if(err) {
@@ -45,4 +47,4 @@ const deleteCar = (req, res, next) => {
     });
 }
 
-export { getAll, addCar, deleteCar };
+export default controller;
