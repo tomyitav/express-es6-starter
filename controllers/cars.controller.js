@@ -3,8 +3,7 @@ import logger from '../core/logger/app-logger'
 
 const controller = {};
 
-controller.getAll = (req, res, next) => {
-    // res.send("All Cars received");
+controller.getAll = (req, res) => {
     Car.getAll((err, cars) => {
         if(err) {
             logger.error('Error in getting cars- ' + err);
@@ -17,7 +16,7 @@ controller.getAll = (req, res, next) => {
     })
 }
 
-controller.addCar = (req, res, next) => {
+controller.addCar = (req, res) => {
     let carToAdd = new Car({
         name: req.body.name
     })
@@ -33,7 +32,7 @@ controller.addCar = (req, res, next) => {
     })
 }
 
-controller.deleteCar = (req, res, next) => {
+controller.deleteCar = (req, res) => {
     let carName = req.body.name;
     Car.removeCar(carName, (err) => {
        if(err) {
