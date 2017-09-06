@@ -30,18 +30,17 @@ controller.addCar = async (req, res) => {
     }
 }
 
-controller.deleteCar = (req, res) => {
+controller.deleteCar = async (req, res) => {
     let carName = req.body.name;
-    Car.removeCar(carName, (err) => {
-       if(err) {
-           logger.error('Failed to delete car...');
-           res.send('Delete failed..!');
-       }
-       else {
-           logger.info('Deleted Car');
-           res.send('Car successfully deleted');
-       }
-    });
+    try{
+        const removedCar = await Car.removeCar(carName);
+        logger.info('Deleted Car- ' + removedCar);
+        res.send('Car successfully deleted');
+    }
+    catch(err) {
+        logger.error('Failed to delete car- ' + err);
+        res.send('Delete failed..!');
+    }
 }
 
 export default controller;

@@ -14,8 +14,8 @@ CarsModel.addCar = async (carToAdd) => {
     return carToAdd.save();
 }
 
-CarsModel.removeCar = async (carName, cb) => {
-    CarsModel.remove({name: carName}, cb);
+CarsModel.removeCar = async (carName) => {
+    return CarsModel.remove({name: carName});
 }
 
 export default CarsModel;
