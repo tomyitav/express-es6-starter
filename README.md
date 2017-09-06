@@ -6,6 +6,7 @@ Starter project for creating a MVC express server with babel-node, using
 + mongoose
 + babel-cli
 + winston and morgan for logging
++ Async/Await
 
 ## Installation
 
