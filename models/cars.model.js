@@ -6,15 +6,15 @@ const CarSchema = mongoose.Schema({
 
 let CarsModel = mongoose.model('Car', CarSchema);
 
-CarsModel.getAll = async () => {
+CarsModel.getAll = () => {
     return CarsModel.find({});
 }
 
-CarsModel.addCar = async (carToAdd) => {
+CarsModel.addCar = (carToAdd) => {
     return carToAdd.save();
 }
 
-CarsModel.removeCar = async (carName) => {
+CarsModel.removeCar = (carName) => {
     return CarsModel.remove({name: carName});
 }
 
