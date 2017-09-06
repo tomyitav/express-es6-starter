@@ -3,33 +3,31 @@ import logger from '../core/logger/app-logger'
 
 const controller = {};
 
-controller.getAll = (req, res) => {
-    Car.getAll((err, cars) => {
-        if(err) {
-            logger.error('Error in getting cars- ' + err);
-            res.send('Got error in getAll');
-        }
-        else {
-            logger.info('sending all cars...');
-            res.send(cars);
-        }
-    })
+controller.getAll = async (req, res) => {
+    try {
+        const cars = await Car.getAll();
+        logger.info('sending all cars...');
+        res.send(cars);
+    }
+    catch(err) {
+        logger.error('Error in getting cars- ' + err);
+        res.send('Got error in getAll');
+    }
 }
 
-controller.addCar = (req, res) => {
-    let carToAdd = new Car({
+controller.addCar = async (req, res) => {
+    let carToAdd = Car({
         name: req.body.name
-    })
-    Car.addCar(carToAdd, (err, savedCar) => {
-        if(err) {
-            logger.error('Error in saving car- ' + err);
-            res.send('Got error in getAll');
-        }
-        else {
-            logger.info('Adding car...');
-            res.send('added: ' + savedCar);
-        }
-    })
+    });
+    try {
+        const savedCar = await Car.addCar(carToAdd);
+        logger.info('Adding car...');
+        res.send('added: ' + savedCar);
+    }
+    catch(err) {
+        logger.error('Error in getting cars- ' + err);
+        res.send('Got error in getAll');
+    }
 }
 
 controller.deleteCar = (req, res) => {
