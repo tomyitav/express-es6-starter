@@ -1,6 +1,6 @@
 # express-es6-starter
 
-Starter project for creating a MVC express server with babel-node, using
+Starter project for creating a MVC express server, using
 
 + express
 + mongoose
