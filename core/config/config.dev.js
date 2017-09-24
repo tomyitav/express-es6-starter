@@ -1,6 +1,6 @@
-import path from "path";
+import path from 'path';
 
-let config = {};
+const config = {};
 
 config.logFileDir = path.join(__dirname, '../../log');
 config.logFileName = 'app.log';

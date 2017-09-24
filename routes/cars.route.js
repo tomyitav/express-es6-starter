@@ -1,6 +1,7 @@
-import express from "express";
-import carController from "../controllers/cars.controller"
-const router = express.Router()
+import express from 'express';
+import carController from '../controllers/cars.controller';
+
+const router = express.Router();
 
 router.get('/allcars', (req, res) => {
     carController.getAll(req, res);
