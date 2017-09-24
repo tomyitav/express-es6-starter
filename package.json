@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Seed project for easily getting started with express for es6",
   "scripts": {
-    "start": "nodemon ./server.js --exec babel-node",
+    "start": "mkdir -p log && nodemon ./server.js --exec babel-node",
     "build": "babel . -d dist --presets es2015,stage-2 --ignore spec.js,node_modules",
     "serve": "node dist/server.js",
     "start_babel": "babel-node ./server.js --preset=babel-preset-es2015",
