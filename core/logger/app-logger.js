@@ -2,6 +2,14 @@ import * as winston from 'winston'
 import * as rotate from 'winston-daily-rotate-file'
 import config from '../config/config.dev'
 
+const fs = require('fs');
+
+const dir = config.logFileDir;
+
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+}
+
 let logger = new winston.Logger({
     level: 'info',
     transports: [

@@ -9,7 +9,7 @@ import connectToDb from './db/connect'
 
 const port = config.serverPort;
 logger.stream = {
-    write: function(message, encoding){
+    write: function (message, encoding) {
         logger.info(message);
     }
 };
