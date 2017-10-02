@@ -1,6 +1,7 @@
-import * as winston from "winston";
-import config from "../config/config.dev";
-import * as fs from "fs";
+import * as winston from 'winston'
+import * as rotate from 'winston-daily-rotate-file'
+import config from '../config/config.dev'
+import * as fs from 'fs';
 
 const dir = config.logFileDir;
 
